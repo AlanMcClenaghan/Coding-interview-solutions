@@ -12,6 +12,22 @@
 //   4
 //   buzz
 
-function fizzBuzz(n) {}
+function fizzBuzz(n) {
+
+  for (let i = 1; i <= n; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+      // Is the number a muiltiple of three and five?
+      console.log("fizzbuzz")
+    } else if (i % 3 === 0) {
+      // Is the number a muiltiple of three?
+      console.log("fizz")
+    } else if (i % 5 === 0) {
+      // Is the number a muiltiple of five?
+      console.log("buzz")
+    } else {
+      console.log(i)
+    }
+  }
+}
 
 module.exports = fizzBuzz;
