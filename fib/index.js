@@ -8,6 +8,40 @@
 // Example:
 //   fib(4) === 3
 
-function fib(n) {}
+// // fibonacci iterative solution
+// function fib(n) {
+//   const results = [0, 1];
+//   for (let i = 2; i <= n; i++) {
+//     const low = results[i - 2];
+//     const high = results[i - 1];
+//     results.push(low + high);
+//   }
+//   return results[n];
+// }
+
+// Memoization of slowFib
+function memoize(fn) {
+  const cache = {};
+  return function (...args) {
+    if (cache[args]) {
+      return cache[args];
+    }
+    const result = fn.apply(this, args);
+    cache[args] = result;
+
+    return result;
+  }
+}
+
+// fibonacci recursive solution
+// Warning! Exponential runtime
+function slowFib(n) {
+  if (n < 2) {
+    return n;
+  }
+  return fib(n - 1) + fib(n - 2);
+}
+
+const fib = memoize(slowFib);
 
 module.exports = fib;
